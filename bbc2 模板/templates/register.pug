@@ -1,0 +1,17 @@
+
+extends layout.pug 
+
+block content 
+
+  h1 注册
+  form(action='/register' method='POST')
+    div
+      | Username: 
+      input(type='text' name='name')
+    div
+      | Email: 
+      input(type='text' name='email')
+    div
+      | Password: 
+      input(type='password' name='password')
+    button 提交
