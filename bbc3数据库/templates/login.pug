@@ -1,0 +1,18 @@
+extends layout.pug 
+
+block content 
+ h1 登录
+ form(action='/login' method='POST')
+  div
+    | Username: 
+    input(type='text' name='name')
+  div
+    | Password: 
+    input(type='password' name='password')
+  
+    input(hidden='' name='return_to' value=`${referer || '/'}`) 
+  |  
+  br
+  button 登录
+
+   //   value=referer || '/'  
