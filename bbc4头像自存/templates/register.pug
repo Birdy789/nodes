@@ -1,0 +1,40 @@
+
+extends layout.pug 
+
+block content 
+
+  h1 注册
+  form(action='/register' enctype ='multipart/form-data'  method='POST')
+    div
+      | Username: 
+      input(type='text' name='name')
+    div
+      | Email: 
+      input(type='text' name='email')
+    div
+      | Password: 
+      input(type='password' name='password')
+    div
+      | Avatar: 
+      br
+      input(type='file'  name='avatar')
+    button 提交
+
+  script.
+    $('[type="file"]').on('change', async function(e) {
+      var file = this.files[0]
+      var fd = new FormData()
+      fd.append('file', file)
+
+
+      var data = await $.ajax('/upload', {
+        method: 'post',
+        data: fd,
+        processData: false,
+        contentType: false,
+      })
+
+      console.log(data)
+
+      $('[type="hidden"]').val(data[0])
+    })
