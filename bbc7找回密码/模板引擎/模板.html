@@ -1,0 +1,65 @@
+<script>
+  var data = ['张三', '游泳', '第一名']
+
+  var i = 0
+
+
+  '______同学：在______活动中获得了“_________”称号。特发此证.'.replace(/_+/g, function () {
+    return data[i++]
+  })
+
+
+  // -----
+  var data = {
+    activity: '游泳',
+    name: '张三',
+    score: '第一名',
+    others: ['dd', '44', '555']
+  }
+
+  var i = 0
+
+  '{name}同学：在{activity}活动中获得了“{score}”称号。特发此证.'.replace(/\{(\w+)\}/g, function (match, word) {
+    console.log(match, word)
+    return data[word]
+  })
+  // ******
+
+  var template = `{{ name }}同学：在{{ activity }}活动中获得了“{{ score }}”称号。
+ {{#each others}}
+ {{.}}
+ {{/each}}
+
+  {{#for item in others}}
+   {{item}}
+  {{/for}}
+  特发此证。`
+  var data = {
+    activity: '游泳',
+    name: '张三',
+    score: '第一名',
+  }
+
+
+  function f(template, data) {
+
+  }
+  // ============
+  var template = '{{ name }}同学：在{{ activity }}活动中获得了“{{ score }}”称号。特发此证。'
+  var data = {
+    activity: '游泳',
+    name: '张三',
+    score: '第一名',
+  }
+
+
+  function f(template, data) {
+
+  }
+
+  // ------------
+  { {#if foo } }
+  fpp
+  { { /if}}
+
+</script>

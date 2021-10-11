@@ -1,0 +1,32 @@
+extends layout.pug 
+
+block content 
+ h1 登录
+ form(action='/login' method='POST')
+  div
+    | Username: 
+    input(type='text' name='name')
+  div
+    | Password: 
+    input(type='password' name='password')
+
+  div Captcha:
+    input(type="text" name='captcha')
+    img(src='/captcha-img')
+  
+
+
+    input(hidden='' name='return_to' value=`${referer || '/'}`) 
+  |  
+  br
+  button 登录
+  |
+  a(href="/forget-password") 忘记密码?
+
+
+
+
+
+
+
+   //   value=referer || '/'   
